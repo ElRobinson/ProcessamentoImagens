@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity
 
     ImageView imgFoto;
     ProgressDialog dialog;
+    TextView txtInfo;
 
 
     @Override
@@ -83,7 +85,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_histogram) {
+            return true;
+        }
+        if (id == R.id.action_settings1) {
+            return true;
+        }
+        if (id == R.id.action_settings2) {
+            return true;
+        }
+        if (id == R.id.action_settings3) {
             return true;
         }
 
@@ -104,7 +115,7 @@ public class MainActivity extends AppCompatActivity
 
 
             try {
-                screenLoad("ON");
+                //screenLoad("ON");
                 // aqui manipulo a imagem.
                 imgFoto = (ImageView) findViewById(R.id.imgFoto);
 
@@ -112,14 +123,27 @@ public class MainActivity extends AppCompatActivity
                 Bitmap tomCinza = drawable.getBitmap();
 
                 MetodoFoto foto = new MetodoFoto();
-                tomCinza = foto.converteCinza(tomCinza);
+                foto.setFoto(tomCinza);
+                tomCinza = foto.converteCinza();
+
+                //txt
+
+                foto.calculaMedia();
+                foto.calculaMediana();
+                foto.calculaModa();
+                foto.calculaVariancia();
+
 
                 imgFoto.setImageBitmap(tomCinza);
+
+                txtInfo = (TextView) findViewById(R.id.txtInfo);
+                txtInfo.setText(" Media:" + foto.getMEDIA() + " Mediana: " + foto.getMEDIANA() + "\n" +
+                                " Moda: " + foto.getMODA() + " Variância: " + foto.getVARIANCIA());
 
             } catch (Exception e) {
                 Toast.makeText(getBaseContext(), "Erro:" + e, Toast.LENGTH_SHORT).show();
             } finally {
-                screenLoad("OFF");
+                //screenLoad("OFF");
             }
 
 
@@ -128,9 +152,15 @@ public class MainActivity extends AppCompatActivity
             //Bitmap foto = BitmapFactory.decodeResource(getResources(), R.id.imgFoto);
 
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_efeito1) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_efeito2) {
+
+        }else if (id == R.id.nav_efeito3) {
+
+        }else if (id == R.id.nav_efeito4) {
+
+        }else if (id == R.id.nav_efeito5) {
 
         }
 

@@ -5,4 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="efeito1">Maior ou igual a 128 MÉDIA cinza</string>
+    <string name="efeito2">Maior ou igual a 128 MODA cinza</string>
+    <string name="efeito3">Maior ou igual a 128 MEDIANA cinza</string>
+    <string name="efeito4">Menores MEDIA preto</string>
+    <string name="efeito5">Maiores MEDIANA branco e menores MEDIA preto</string>
 </resources>

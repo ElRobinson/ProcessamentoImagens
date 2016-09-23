@@ -12,14 +12,38 @@
             android:title="Converte para cinza" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Efeitos">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_efeito1"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/efeito1" />
+            <item
+                android:id="@+id/nav_efeito2"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/efeito2" />
+            <item
+                android:id="@+id/nav_efeito3"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/efeito3" />
+            <item
+                android:id="@+id/nav_efeito4"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/efeito4" />
+            <item
+                android:id="@+id/nav_efeito5"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/efeito5" />
+        </menu>
+    </item>
+    <item android:title="Menu 2">
+        <menu>
+            <item
+                android:id="@+id/nav_share1"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_send2"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Send" />
         </menu>

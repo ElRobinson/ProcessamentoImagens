@@ -13,10 +13,17 @@
     tools:showIn="@layout/app_bar_main">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:id="@+id/imgFoto"
         android:src="@drawable/lena2"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/txtInfo"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtInfo" />
+
 </RelativeLayout>
