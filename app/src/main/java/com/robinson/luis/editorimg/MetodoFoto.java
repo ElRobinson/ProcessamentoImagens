@@ -7,6 +7,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import static android.R.attr.bitmap;
+
 
 /**
  * Created by Luis on 19/09/2016.
@@ -20,6 +22,8 @@ public class MetodoFoto {
     public int PARAMETRO_BYTE = 16;
 
     public Bitmap foto;
+
+    public Bitmap tomCinza;
 
     public Bitmap getFoto() {
         return foto;
@@ -61,14 +65,20 @@ public class MetodoFoto {
         this.foto = foto;
     }
 
+    public Bitmap getTomCinza() {
+        return tomCinza;
+    }
+
+    public void setTomCinza(Bitmap tomCinza) {
+        this.tomCinza = tomCinza;
+    }
+
     public Bitmap converteCinza() {
         int h = foto.getHeight();
         int w = foto.getWidth();
 
         Bitmap.Config conf = Bitmap.Config.ARGB_8888;
-        Bitmap tomCinza = Bitmap.createBitmap(w, h, conf);
-
-
+        tomCinza = Bitmap.createBitmap(w, h, conf);
 
         Matriz = new int[w][h];
         for (int i = 0; i < w; i++) {
@@ -322,6 +332,31 @@ public class MetodoFoto {
         return (variancia);
     }
 
+    public Bitmap functionA(){
+
+        int h = tomCinza.getHeight();
+        int w = tomCinza.getWidth();
+
+        Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+        Bitmap imagemEfeito = Bitmap.createBitmap(w, h, conf);
+
+        Matriz = new int[w][h];
+        for (int i = 0; i < w; i++) {
+            for (int j = 0; j < h; j++) {
+
+                int color = tomCinza.getPixel(i, j);
+                int cinza = (color >> PARAMETRO_BYTE) & 0xFF;
+
+                if (cinza >= 128){
+                    imagemEfeito.setPixel(i, j, Color.rgb(getMEDIA(),getMEDIA(),getMEDIA()));
+                } else {
+                    imagemEfeito.setPixel(i, j, Color.rgb(cinza, cinza, cinza));
+                }
+                Matriz[i][j]=cinza;
+            }
+        }
+        return imagemEfeito;
+    }
 
 
 }
